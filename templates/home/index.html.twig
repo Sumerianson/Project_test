@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="row col-12 col-xl-6 g-4">
+        <div class="col-6  col-xl-4">
+            <div class="card h-100 p-2">
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path ('app_personnel_index') }}" class="text-decoration-none">
+                {% endif %}
+                <img src="./images/doctor.png" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Personnel</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-6  col-xl-4">
+            <div class="card h-100">
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path ('app_patient_index') }}" class="text-decoration-none">
+                {% endif %}
+                {% if is_granted('ROLE_PERSONNEL') %}
+                <a href="{{ path ('app_patient_index') }}" class="text-decoration-none">
+                {% endif %}
+                <img src="./images/patient.png" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Patient</h5>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-6  col-xl-4">
+            <div class="card h-100">
+                {% if is_granted('ROLE_PERSONNEL') %}
+                <a href="{{ path ('app_consultation_index') }}" class="text-decoration-none">
+                {% endif %}
+                <img src="./images/consultation.png" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Consultation</h5>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-6  col-xl-4">
+            <div class="card h-100">
+                {% if is_granted('ROLE_PERSONNEL') %}
+                <a href="{{ path ('app_traitement_index') }}" class="text-decoration-none">
+                {% endif %}
+                <img src="./images/medicine.png" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Traitement</h5>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-6  col-xl-4">
+            <div class="card h-100">
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path ('app_hospitalisation_index') }}" class="text-decoration-none">
+                {% endif %}
+                <img src="./images/therapy.png" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Hospitalisation</h5>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-6  col-xl-4">
+            <div class="card h-100">
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path ('app_chambre_index') }}" class="text-decoration-none">
+                {% endif %}
+                <img src="./images/hospital-room.png" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Les Chambres</h5>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Traitement{% endblock %}
+
+{% block body %}
+    {#<h1>Create new Traitement</h1>#}
+
+    {#{{ include('traitement/_form.html.twig') }}#}
+
+    {#<a href="{{ path('app_traitement_index') }}">back to list</a>#}
+
+    <h1>Traitement index</h1>
+    {{form_start(form)}}
+    {{ form_widget(form._token) }}{# needed if you're using CSRF #}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code patient</th>
+                <th>Code maladie</th>
+                <th>Observation</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Etat patient</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for traitement in form %}
+            <tr>
+                <td>{{ form_row(form.code_pat) }}</td>
+                <td>{{ form_row(form.code_maladie) }}</td>
+                <td>{{ form_row(form.observation) }}</td>
+                <td>{{ form_row(form.date_deb)}}</td>
+                <td>{{ form_row(form.date_fin)}}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ form_end(form, {'render_rest' : false}) }}
+{% endblock %}

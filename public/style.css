@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: aqua;
+}
+.container {
+    width: 70%;
+    background-color: rgb(216, 248, 248);
+}

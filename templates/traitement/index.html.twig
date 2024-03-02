@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Traitement index{% endblock %}
+
+{% block body %}
+    <h1>Traitement index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code patient</th>
+                <th>Code maladie</th>
+                <th>Observation</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Etat patient</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for traitement in traitements %}
+            <tr>
+                <td>{{ traitement.id }}</td>
+                <td>{{ traitement.codePat }}</td>
+                <td>{{ traitement.codeMaladie }}</td>
+                <td>{{ traitement.observation }}</td>
+                <td>{{ traitement.dateDeb ? traitement.dateDeb|date('Y-m-d') : '' }}</td>
+                <td>{{ traitement.dateFin ? traitement.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ traitement.etatPat }}</td>
+                <td>
+                    <a href="{{ path('app_traitement_show', {'id': traitement.id}) }}">show</a>
+                    <a href="{{ path('app_traitement_edit', {'id': traitement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_traitement_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnel{% endblock %}
+
+{% block body %}
+    <h1>Personnel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnel.id }}</td>
+            </tr>
+            <tr>
+                <th>Code_pers</th>
+                <td>{{ personnel.codePers }}</td>
+            </tr>
+            <tr>
+                <th>Nom_pers</th>
+                <td>{{ personnel.nomPers }}</td>
+            </tr>
+            <tr>
+                <th>Gendre</th>
+                <td>{{ personnel.gendre }}</td>
+            </tr>
+            <tr>
+                <th>Naissance</th>
+                <td>{{ personnel.naissance ? personnel.naissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ personnel.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ personnel.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ personnel.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Fonction</th>
+                <td>{{ personnel.fonction }}</td>
+            </tr>
+            <tr>
+                <th>Code_service</th>
+                <td>{{ personnel.codeService }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_personnel_index') }}">back to list</a>
+
+    <a href="{{ path('app_personnel_edit', {'id': personnel.id}) }}">edit</a>
+
+    {{ include('personnel/_delete_form.html.twig') }}
+{% endblock %}
